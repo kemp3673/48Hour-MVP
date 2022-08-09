@@ -1,3 +1,7 @@
+# Dev added ignore
+.env
+
+
 # Logs
 logs
 *.log
