@@ -10,7 +10,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundImage: `url("https://rare-gallery.com/uploads/posts/965195-solarized-colorscheme-Dungeons-amp-Dragons-minimalism.png")`, backgroundSize: "cover"}}>
       <header className="App-header">
         <h1>
           DM TOOLKIT
