@@ -16,7 +16,6 @@ exports.addCharacter = (req, res) => {
 }
 
 exports.updateCharacter = (req, res) => {
-  console.log(req.body);
   let filter = {character_name: req.body.character_name};
   let update = {current_hp: req.body.current_hp};
   return Character.findOneAndUpdate(filter, update)

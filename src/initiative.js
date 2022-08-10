@@ -25,15 +25,15 @@ function InitiativeModal() {
   }
 
   const handleOnDragEnd = (result) => {
-    let drugCard = characters[result.source.index];
-    let newOrder = characters;
+    const drugCard = characters[result.source.index];
+    const newOrder = characters;
     newOrder.splice(result.source.index, 1);
     newOrder.splice(result.destination.index, 0, drugCard);
   }
 
   const updateInit = (index, e) => {
     e.preventDefault();
-    let copyChar = [...characters];
+    const copyChar = [...characters];
     copyChar[index].initiative = Number(e.target.value);
     setCharacters(copyChar);
   }
@@ -55,23 +55,23 @@ function InitiativeModal() {
   }
 
   return (
-    <div className="InitiativeTracker" style={{backgroundColor: "white", width: "20vw"}}>
+    <div className="InitiativeTracker" style={{backgroundColor: "beige", width: "20vw", maxHeight: "76vh", overflowY: "scroll", marginBottom: "15px"}}>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="characterCards">
           {(provided) => (
             <ul style={{ listStyle: "none" }} {...provided.droppableProps} ref={provided.innerRef}>
-              <h3>Initiative Tracker</h3>
+              <h3>Character Tracker</h3>
               {characters.length > 0 ? characters.map((player, index) => {
                 return (
                   <Draggable key={player.character_name} draggableId={player.character_name} index={index} >
                     {(provided) => (
-                      <li className="CharacterCard" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} >
+                      <li className="CharacterCard" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
                         <img style={{ maxHeight: "100px", maxWidth: "100px" }} src={player.image} alt={player.character_name} />
-                        <form onChange={(e) => updateInit(index, e)}><label>Initiative: <input type="text" placeholder="1D20" /></label></form>
                         <p><b>Character Name: </b>{player.character_name}</p>
-                        <p><b>AC </b>{player.ac}</p>
-                        <p><b>Max HP: </b>{player.max_hp}</p>
-                        <form onChange={(e) => updateHP(index, e)}><label>Current HP: <input type="text" placeholder={player.current_hp} /></label></form>
+                        <span><b>AC </b>{player.ac}</span>&nbsp;
+                        <span><b>Max HP: </b>{player.max_hp}</span>
+                        <form onChange={(e) => updateHP(index, e)}><label>Current HP: <input style={{maxWidth: "45px"}} type="number" placeholder={player.current_hp} /></label></form>
+                        <br></br>
                       </li>
                     )}
                   </Draggable>
@@ -82,8 +82,6 @@ function InitiativeModal() {
           )}
         </Droppable>
       </DragDropContext>
-      <button onClick={() => order()}>Order</button>
-      <button onClick={() => handleOnDragEnd({source : {index: 0}, destination : {index: (characters.length - 1)}})}>Next Turn</button>
     </div>
 
   )

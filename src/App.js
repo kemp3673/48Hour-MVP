@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import BasicExample from "./navbar.js";
 import InitiativeModal from "./initiative.js";
-import NotesModal from "./notes.js";
+import Monsters from "./monsters.js";
+import Roll from "./roll.js";
 
 
 
@@ -10,12 +11,13 @@ function App() {
 
 
   return (
-    <div className="App" style={{backgroundImage: `url("https://wallpaperaccess.com/full/1588550.jpg")`, backgroundSize: "cover"}}>
+    <div className="App" style={{backgroundImage: `url("https://wallpaperaccess.com/full/1588550.jpg")`, backgroundSize: "cover", maxHeight: "100vh"}}>
       <header className="App-header">
       </header>
       <BasicExample/>
       <InitiativeModal />
-      <NotesModal/>
+      <Monsters style={{position: "relative", left: "0", bottom: "0"}}/>
+      <Roll/>
     </div>
   );
 }
