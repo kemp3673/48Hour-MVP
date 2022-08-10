@@ -13,6 +13,7 @@ const characterSchema = new mongoose.Schema(
     ac: Number,
     max_hp: Number,
     current_hp: Number,
+    initiative: Number,
     image: String
   }
 );

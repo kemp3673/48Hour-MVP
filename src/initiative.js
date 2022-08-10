@@ -3,14 +3,15 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import axios from 'axios';
 
 function InitiativeModal() {
-  const [characters, setCharacters] = useState([]);
 
+  const [characters, setCharacters] = useState([]);
   useEffect(() => {
     axios.get('http://localhost:3000/character')
       .then((data) => {
         setCharacters(data.data);
       });
   }, []);
+
 
   const updateHP = (index, e) => {
     e.preventDefault();
@@ -22,36 +23,67 @@ function InitiativeModal() {
         "current_hp": Number(e.target.value)
       });
   }
+
+  const handleOnDragEnd = (result) => {
+    let drugCard = characters[result.source.index];
+    let newOrder = characters;
+    newOrder.splice(result.source.index, 1);
+    newOrder.splice(result.destination.index, 0, drugCard);
+  }
+
+  const updateInit = (index, e) => {
+    e.preventDefault();
+    let copyChar = [...characters];
+    copyChar[index].initiative = Number(e.target.value);
+    setCharacters(copyChar);
+  }
+
+  const order = () => {
+    let sortedOrder = [];
+    sortedOrder.push(characters[0]);
+    for (var i = 1; i < characters.length; i++) {
+      for (var j = 0; j < sortedOrder.length; j++) {
+        if (characters[i].initiative > sortedOrder[j].initiative) {
+          sortedOrder = sortedOrder.splice(j, 0, characters[i]);
+          break;
+        } else if (j === sortedOrder.length - 1 ) {
+          sortedOrder.push(characters[i]);
+          break;
+        }
+      }
+    }
+  }
+
   return (
-    <div className="InitiativeTracker">
-      <DragDropContext>
+    <div className="InitiativeTracker" style={{backgroundColor: "white", width: "20vw"}}>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="characterCards">
           {(provided) => (
-        <ul style={{ listStyle: "none" }} {...provided.droppableProps} ref={provided.innerRef}>
-          <h3>Initiative Tracker</h3>
-          {characters.length > 0 ? characters.map((player, index) => {
-            return (
-              <Draggable key={player.character_name} draggableId={player.character_name} index={index}>
-                {(provided) => (
-              <li className="CharacterCard" style={{border: "2px solid black"}} {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                <img style={{ maxHeight: "100px", maxWidth: "100px" }} src={player.image} alt={player.character_name}/>
-                <form><label>Initiative: <input type="text" placeholder="1D20" /></label></form>
-                <p><b>Character Name: </b>{player.character_name}</p>
-                <p><b>AC </b>{player.ac}</p>
-                <p><b>Max HP: </b>{player.max_hp}</p>
-                <form onChange={(e) => updateHP(index, e)}><label>Current HP: <input type="text" placeholder={player.current_hp} /></label></form>
-              </li>
-            )}
-              </Draggable>
-            )
-          }) : <span>No Characters have appeared</span>}
-        </ul>
+            <ul style={{ listStyle: "none" }} {...provided.droppableProps} ref={provided.innerRef}>
+              <h3>Initiative Tracker</h3>
+              {characters.length > 0 ? characters.map((player, index) => {
+                return (
+                  <Draggable key={player.character_name} draggableId={player.character_name} index={index} >
+                    {(provided) => (
+                      <li className="CharacterCard" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} >
+                        <img style={{ maxHeight: "100px", maxWidth: "100px" }} src={player.image} alt={player.character_name} />
+                        <form onChange={(e) => updateInit(index, e)}><label>Initiative: <input type="text" placeholder="1D20" /></label></form>
+                        <p><b>Character Name: </b>{player.character_name}</p>
+                        <p><b>AC </b>{player.ac}</p>
+                        <p><b>Max HP: </b>{player.max_hp}</p>
+                        <form onChange={(e) => updateHP(index, e)}><label>Current HP: <input type="text" placeholder={player.current_hp} /></label></form>
+                      </li>
+                    )}
+                  </Draggable>
+                )
+              }) : <span>No Characters have appeared</span>}
+              {provided.placeholder}
+            </ul>
           )}
         </Droppable>
       </DragDropContext>
-      <button>Clear</button>
-      <button>Order</button>
-      <button>Next Turn</button>
+      <button onClick={() => order()}>Order</button>
+      <button onClick={() => handleOnDragEnd({source : {index: 0}, destination : {index: (characters.length - 1)}})}>Next Turn</button>
     </div>
 
   )

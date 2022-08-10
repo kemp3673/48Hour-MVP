@@ -10,13 +10,10 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundImage: `url("https://wallpaperaccess.com/full/1588550.jpg")`, backgroundSize: "cover"}}>
       <header className="App-header">
-        <h1>
-          DM TOOLKIT
-        </h1>
       </header>
-      {/* <BasicExample/> */}
+      <BasicExample/>
       <InitiativeModal />
       <NotesModal/>
     </div>
