@@ -19,7 +19,7 @@ function Monsters() {
 
   return (
     <>
-      <Button style={{backgroundColor: "gray", border: "black"}} variant="primary" onClick={handleShow}>
+      <Button style={{backgroundColor: "gray", border: "black", position: "absolute", bottom: "10px"}} variant="primary" onClick={handleShow}>
         Quick Access Monsters
       </Button>
 
@@ -33,7 +33,7 @@ function Monsters() {
               return (
                 <li key={monster.monster_name} index={index}>
                   <p><b>{monster.monster_name}</b></p>
-                  <img src="https://static.wikia.nocookie.net/vsbattles/images/f/fb/Darkmantle.png/revision/latest?cb=20191011080416" alt={monster.monster_name} />
+                  <img src={monster.image} alt={monster.monster_name} />
                   <p><b>Speed:</b> {monster.speed}ft</p>
                   <p><b>AC:</b> {monster.ac}</p>
                   <p><b>CR:</b> {monster.cr}</p>

@@ -1,6 +1,4 @@
-import React from 'react';
-
-function Roll() {
+function Roll({diceBox}) {
 
   let dieQty = 0;
   let dieValue = 0;
@@ -14,6 +12,7 @@ function Roll() {
   }
 
   return (
+    <div style={{position: "absolute", bottom: "10px", left: "200px"}}>
     <div style={{ display: "flex", flexDirection: "row", marginTop: "6px", backgroundImage: `url("https://www.tarkett-asia.com/media/img/M/THH_LVT_Starfloor_Click_Old_Stone_Anthracite.jpg")`, maxWidth: "285px" }}>
       <button onClick = {() => rollresult()} style={{ marginRight: "15px" }}>Roll</button>
       <form onChange = {(e) => {dieQty = e.target.value}} style={{ textShadow: "5px 5px 5px black" }}><label style={{ color: "white", margin: "5px" }}>Qty: </label><input type="number" placholder="1" style={{ width: "40px" }} /></form>
@@ -28,6 +27,7 @@ function Roll() {
         <option value="100">D100</option>
       </select>
       </form>
+    </div>
     </div>
   )
 }

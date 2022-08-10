@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function BasicExample() {
+const NavbarComponent = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" style={{position: "fixed", width: "100%", top: "0"}}>
       <Container>
         <Navbar.Brand href="/"><img src="https://www.seekpng.com/png/detail/18-187098_d20-dice-png-d20-vector.png" alt="D20" style={{ maxHeight: "100px"}}/>DM Toolkit</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -28,10 +28,10 @@ function BasicExample() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <Nav.Link >DM Notes</Nav.Link>
+        <Nav.Link href="https://www.notion.so/login">DM Notes</Nav.Link>
       </Container>
     </Navbar>
   );
 }
 
-export default BasicExample;
+export default NavbarComponent;

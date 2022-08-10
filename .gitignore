@@ -1,7 +1,6 @@
 # Dev added ignore
 .env
-
-
+*/Failed
 # Logs
 logs
 *.log
