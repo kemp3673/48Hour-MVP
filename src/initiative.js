@@ -4,7 +4,6 @@ import axios from 'axios';
 
 function InitiativeModal() {
   const [characters, setCharacters] = useState([]);
-
   useEffect(() => {
     axios.get('http://localhost:3000/character')
       .then((data) => {
@@ -22,9 +21,17 @@ function InitiativeModal() {
         "current_hp": Number(e.target.value)
       });
   }
+
+  const handleOnDragEnd = (result) => {
+    let drugCard = characters[result.source.index];
+    let newOrder = characters;
+    newOrder.splice(result.source.index, 1);
+    newOrder.splice(result.destination.index, 0, drugCard);
+  }
+
   return (
     <div className="InitiativeTracker">
-      <DragDropContext>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="characterCards">
           {(provided) => (
         <ul style={{ listStyle: "none" }} {...provided.droppableProps} ref={provided.innerRef}>
@@ -45,6 +52,7 @@ function InitiativeModal() {
               </Draggable>
             )
           }) : <span>No Characters have appeared</span>}
+          {provided.placeholder}
         </ul>
           )}
         </Droppable>
