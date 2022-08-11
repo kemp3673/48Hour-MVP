@@ -1,7 +1,7 @@
 # 48Hour-MVP
 Hack Reactor Project to create full stack application in 48 hours
 
-## Depenedencies
+### Depenedencies
 react-spotify-player
 react-beautiful-dnd
 bootstrap
@@ -25,4 +25,9 @@ bootstrap
 ## Version 1.0 (August 11, 2022) 
 
 ![Screen Shot 2022-08-11 at 11 56 25 AM](https://user-images.githubusercontent.com/102747919/184191233-7ddaa242-15b8-4ce4-8b31-f6bd83754d85.png)
+
+
+## Demo 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=A5RGEZNplNE" target="_blank"><img src="http://img.youtube.com/vi/A5RGEZNplNE/0.jpg" 
+alt="Youtube Demo" width="240" height="180" border="10" /></a>
 
