@@ -6,7 +6,7 @@ import axios from 'axios';
 function Monsters() {
   const [monsters, setMonsters] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:3000/monster')
+    axios.get('/monster')
       .then((data) => {
         setMonsters(data.data);
       });

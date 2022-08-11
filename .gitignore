@@ -1,6 +1,8 @@
 # Dev added ignore
 .env
-*/Failed
+failed/
+dice.js
+diceBox.js
 # Logs
 logs
 *.log
