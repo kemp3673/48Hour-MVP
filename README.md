@@ -3,9 +3,9 @@ Hack Reactor Project to create full stack application in 48 hours
 
 ## Depenedencies
 
-@react-spotify-player
-@react-beautiful-dnd
-@bootstrap
+1.react-spotify-player
+2.react-beautiful-dnd
+3.bootstrap
 
 ### These dependencies are non functional at the moment but are planned for future update
 @3d-dice/dice-box       
