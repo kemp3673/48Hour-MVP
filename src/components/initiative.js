@@ -70,27 +70,25 @@ function InitiativeModal() {
   }
 
   return (
-    <div className="InitiativeTracker" style={{ backgroundColor: "beige", width: "20vw", maxHeight: "80vh", overflowY: "scroll", postition: "relative", marginTop: "135px", marginBottom: "15px" }}>
+    <div className="InitiativeTracker" style={{ backgroundColor: "beige", width: "350px", maxHeight: "80vh", overflowY: "scroll", postition: "relative", marginTop: "135px", marginBottom: "50px", marginLeft:"1px"}}>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="characterCards">
           {(provided) => (
-            <ul style={{ listStyle: "none" }} {...provided.droppableProps} ref={provided.innerRef}>
-              <h3>Character Tracker</h3>
+            <ul style={{ listStyle: "none", marginRight:"20px"}} {...provided.droppableProps} ref={provided.innerRef}>
+              <h3 style={{textShadow: "4px 4px 6px gray", marginLeft:"20px"}}><b>Character Tracker</b></h3>
               {characters.length > 0 ? characters.map((player, index) => {
                 return (
-                  <Draggable key={player.character_name} draggableId={player.character_name} index={index} >
+                  <Draggable key={player.character_name} draggableId={player.character_name} index={index}>
                     {(provided) => (
-
                       <li className="CharacterCard" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                        <div style={{border: "2px solid black", margin: "2px", backgroundColor: "beige"}}>
-                        <img style={{ maxHeight: "100px", maxWidth: "100px" }} src={player.image} alt={player.character_name} />
+                        <div style={{border: "2px solid black", margin: "5px", backgroundColor: "beige"}}>
+                        <img style={{ maxHeight: "100px", maxWidth: "100px"}} src={player.image} alt={player.character_name} />
                         <p><b>Character Name: </b>{player.character_name}</p>
-                        <span><b>AC </b>{player.ac}</span>&nbsp;
-                        <span><b>Max HP: </b>{player.max_hp}</span>
-                        <form onChange={(e) => updateHP(index, e)}><label>Current HP: <input style={{ maxWidth: "45px" }} type="number" placeholder={player.current_hp} /></label></form>
+                        <span style={{marginLeft: "20px"}}><b>AC </b>{player.ac}</span>&nbsp;
+                        <span style={{marginLeft: "80px"}}><b>Max HP: </b>{player.max_hp}</span>
+                        <form style={{marginLeft: "40px"}} onChange={(e) => updateHP(index, e)}><label>Current HP: <input style={{ maxWidth: "45px", boxShadow: "2px 2px 2px black", height: "25px", marginBottom: "5px", marginLeft:"12px" }} type="number" placeholder={player.current_hp} /></label></form>
                         </div>
                       </li>
-
                     )}
                   </Draggable>
                 )
@@ -100,13 +98,13 @@ function InitiativeModal() {
           )}
         </Droppable>
       </DragDropContext>
-      <Button style={{ backgroundColor: "gray", border: "black" }} variant="primary" onClick={handleShow}>
+      <Button style={{ backgroundColor: "#27445C", border: "black", boxShadow: "2px 2px 5px black" }} variant="primary" onClick={handleShow}>
         Add Character
       </Button>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Add New Hero</Modal.Title>
+        <Modal.Header closeButton style={{backgroundColor: "#27445C", color:"white"}}>
+          <Modal.Title style={{fontSize: "30px"}}><img src="https://images.tabletopaudio.com/sb/dm_tools_header1.png" alt="logo" style={{ height: "80px", marginRight: "20px"}}/> <b>Add New Hero</b></Modal.Title>
         </Modal.Header>
         <Modal.Body >
           <div className="form-group">
@@ -128,10 +126,10 @@ function InitiativeModal() {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button style={{boxShadow: "2px 2px 5px black", backgroundColor: "#27445C", color:"white"}} variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="Primary" style={{ backgroundColor: "rgba(0,150,255)" }} onClick={() => handleAdd()}>
+          <Button style={{boxShadow: "2px 2px 5px black", backgroundColor: "#27445C", color:"white"}} variant="Primary" onClick={() => handleAdd()}>
             Submit
           </Button>
         </Modal.Footer>

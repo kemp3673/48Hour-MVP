@@ -19,25 +19,26 @@ function Monsters() {
 
   return (
     <>
-      <Button style={{backgroundColor: "gray", border: "black", position: "absolute", bottom: "10px"}} variant="primary" onClick={handleShow}>
+      <Button style={{backgroundColor: "#27445C", border: "black", position: "absolute", bottom: "10px", boxShadow: "2px 2px 5px black"}} variant="primary" onClick={handleShow}>
         Quick Access Monsters
       </Button>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Monsters</Modal.Title>
+        <Modal.Header closeButton style={{backgroundColor: "#27445C", color:"white"}}>
+          <Modal.Title style={{fontSize: "40px"}}><img src="https://images.tabletopaudio.com/sb/dm_tools_header1.png" alt="logo" style={{ height: "80px", marginRight: "20px"}}/> <b>Monsters</b></Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ul>
+          <ul style={{listStyle: "none"}}>
             {monsters.length > 0 ? monsters.map((monster, index) => {
               return (
-                <li key={monster.monster_name} index={index}>
-                  <p><b>{monster.monster_name}</b></p>
-                  <img src={monster.image} alt={monster.monster_name} />
+                <div key={monster.monster_name} style={{borderBottom: "4px solid black", marginBottom: "10px"}}>
+                <li index={index}>
+                  <p style={{fontSize: "30px"}}><b>{monster.monster_name}</b></p>
+                  <img className="img-fluid img-thumbnail" src={monster.image} alt={monster.monster_name} />
                   <p><b>Speed:</b> {monster.speed}ft</p>
                   <p><b>AC:</b> {monster.ac}</p>
                   <p><b>CR:</b> {monster.cr}</p>
-                  <p><b>HP:</b> {monster.hp}</p>
+                  <p><b>HP:</b> {monster.max_hp}</p>
                   <p>
                   <b>Str:</b> {monster.str}&nbsp;
                     <b> Dex:</b> {monster.dex}&nbsp;
@@ -49,12 +50,13 @@ function Monsters() {
                   <p><b>Info:</b> {monster.info}</p>
                   <p><b>Actions:</b> {monster.actions}</p>
                 </li>
+                </div>
               )
             }) : null}
           </ul>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose} style={{backgroundColor: "#27445C", color:"white"}}>
             Close
           </Button>
         </Modal.Footer>

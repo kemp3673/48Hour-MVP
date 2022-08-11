@@ -9,7 +9,7 @@ import Spotify from "./components/spotify.js";
 function App() {
 
   return (
-    <div className="App" style={{backgroundImage: `url("https://wallpaperaccess.com/full/1588550.jpg")`, backgroundSize: "cover", height: "100vh", overflow: "hidden"}}>
+    <div className="App" style={{backgroundImage: `url("https://i.pinimg.com/originals/43/0e/9a/430e9abb2039e992275efb898c5948c1.gif")`, backgroundSize: "cover", height: "100vh", overflow: "hidden"}}>
       <header className="App-header">
       </header>
       <NavbarComponent/>
