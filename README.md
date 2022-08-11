@@ -19,7 +19,7 @@ bootstrap
   ### Future Desires
    Currently the app is in a very basic version. It heavily relies on outside sources for its references which I wish to store in app later in order to give the app the ability to run with no internet connection. Aditionally, I would like to add a random name generator that can be specified by race and gender if desired. I had tried to implement a 3D dice roller (the reason the center of the app is empty) but I was unable to accomplish that within the tight time frame I had. That is something that is a must have for me down the road. The app needs to also get a better spotify embedded player that lets the user change playlists. Currently it only plays an album that is input within the spotify.js file. Last, I would like to implement a local note taking and tracking feature instead of linking to outside sources. 
     
-   On the back-end of things OAth is a features I greatly desire and want to implement session storage so users can open the app and have all the information there as they left it. 
+   On the back-end of things credential autorization is a feature I greatly desire and want to implement session storage so users can open the app and have all the information there as they left it. 
 
 
 
