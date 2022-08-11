@@ -11,6 +11,41 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <script>window.onSpotifyWebPlaybackSDKReady = () => {
+    // const token = 'BQAMUUIH5DfNstpCoOEBSQIEdTG_3Q0usVomX4f7E5B6tdmEUQkkvDJcRe3PbztoiYrAqw45uN-DiVgMeTqoiMVXEyVUWIFotafxU25UfHuD_1Vv4sxg6nAIFBhU82yTr671Mjo9X_S3hqG5G5v6Oy3LSdpg8btt-t950h_7f7QKPWDgFxzDp5N_IbRSfeQy';
+    const player = new Spotify.Player({
+      name: 'Web Playback SDK Quick Start Player',
+      getOAuthToken: cb => { cb(token); },
+      volume: 0.5
+    });
+    // Ready
+    player.addListener('ready', ({ device_id }) => {
+                  console.log('Ready with Device ID', device_id);
+              });
 
+              // Not Ready
+              player.addListener('not_ready', ({ device_id }) => {
+                  console.log('Device ID has gone offline', device_id);
+              });
+
+              player.addListener('initialization_error', ({ message }) => {
+                  console.error(message);
+              });
+
+              player.addListener('authentication_error', ({ message }) => {
+                  console.error(message);
+              });
+
+              player.addListener('account_error', ({ message }) => {
+                  console.error(message);
+              <!-- }); -->
+
+              document.getElementById('togglePlay').onclick = function() {
+                player.togglePlay();
+              };
+
+              player.connect();
+          }
+    </script>
 </body>
 </html>

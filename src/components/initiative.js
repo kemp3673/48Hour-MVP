@@ -17,7 +17,7 @@ function InitiativeModal() {
   }, []);
 
   const getCharacters = () => {
-    axios.get('http://localhost:3000/character')
+    axios.get('/character')
       .then((data) => {
         setCharacters(data.data);
       });
@@ -27,7 +27,7 @@ function InitiativeModal() {
     e.preventDefault();
     characters[index].current_hp = Number(e.target.value);
 
-    axios.put('http://localhost:3000/character',
+    axios.put('/character',
       {
         "character_name": characters[index].character_name,
         "current_hp": Number(e.target.value)
@@ -61,7 +61,7 @@ function InitiativeModal() {
         "initiative": 0,
         "image": newImg
       };
-      axios.post('http://localhost:3000/character',
+      axios.post('/character',
       newCharacter
       );
       setCharacters(characters => [...characters, newCharacter])
