@@ -41,6 +41,11 @@ alt="Youtube Demo" width="240" height="180" border="10" /></a>
                </sub>
            </a>
            <br /><br>
+           <div id="badges" align="center">
+             <a href="https://www.linkedin.com/in/nicholas-kempkes/">
+               <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+             </a>
+            </div>
     </td>
 </table>
 <!-- <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="nicholas-kempkes" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/nicholas-kempkes?trk=profile-badge">Nicholas Kempkes</a></div> -->
