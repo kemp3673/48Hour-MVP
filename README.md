@@ -43,5 +43,5 @@ alt="Youtube Demo" width="240" height="180" border="10" /></a>
            <br /><br>
     </td>
 </table>
-<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="nicholas-kempkes" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/nicholas-kempkes?trk=profile-badge">Nicholas Kempkes</a></div>
+<!-- <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="nicholas-kempkes" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/nicholas-kempkes?trk=profile-badge">Nicholas Kempkes</a></div> -->
               
