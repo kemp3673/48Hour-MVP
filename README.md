@@ -31,6 +31,17 @@ bootstrap
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=A5RGEZNplNE" target="_blank"><img src="http://img.youtube.com/vi/A5RGEZNplNE/0.jpg" 
 alt="Youtube Demo" width="240" height="180" border="10" /></a>
 
-
+<table>
+   <td align="center">
+           <a href="https://github.com/kemp3673" style="color: white; text-decoration: none;">
+               <img src="https://avatars.githubusercontent.com/u/102747919?v=4" width="100px;" alt=""/>
+               <br />
+               <sub>
+                   <b><span style="color: white"> Nicholas K.</span> | <span style="color: #229AEF"> kemp3673 </span></b>
+               </sub>
+           </a>
+           <br /><br>
+    </td>
+</table>
 <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="nicholas-kempkes" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/nicholas-kempkes?trk=profile-badge">Nicholas Kempkes</a></div>
               
